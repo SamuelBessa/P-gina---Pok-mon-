@@ -91,7 +91,7 @@ export function Card() {
 const H3 = styled.h3`
     cursor: pointer;
     margin: 10px;
-`
+`;
 
 const Li = styled.li`
     background-color: #31c4ab;
@@ -101,19 +101,38 @@ const Li = styled.li`
     justify-items: center;
     align-content: center;
     margin: 30px;
-`
+
+    @media (max-width: 768px) {
+        width: 200px;
+        margin: 15px 0;
+    }
+`;
 
 const Ul = styled.ul`
     display: grid;
     grid-template-columns: repeat(5, 1fr);
-`
+    
+    @media (max-width: 768px) {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 50px;
+    }
+
+    @media (max-width: 480px) {
+        grid-template-columns: 1fr;
+    }
+`;
 
 const Section = styled.section`
     height: 100%;
     width: 100%;
     background-color: #FFF7FC;
     justify-items: center;
-`
+    padding: 20px;
+
+    @media (max-width: 768px) {
+        padding: 10px;
+    }
+`;
 
 const Button = styled.button`
     border-radius: 10px;
@@ -124,7 +143,12 @@ const Button = styled.button`
     margin: 22px 0px 23px 0px;
     border: none;
     cursor: pointer;
-`
+
+    @media (max-width: 768px) {
+        width: 60px;
+        height: 35px;
+    }
+`;
 
 const Div = styled.div`
     width: 200px;
@@ -133,7 +157,13 @@ const Div = styled.div`
     align-content: center;
     border-radius: 10px;
     text-align: center;
-`
+
+    @media (max-width: 768px) {
+        width: 100px;
+        height: 100px;
+    }
+`;
+
 
 function Pagina() {
     return (

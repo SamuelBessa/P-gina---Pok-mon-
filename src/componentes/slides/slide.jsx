@@ -4,7 +4,6 @@ import { Navigation } from 'swiper/modules';
 
 import { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import styled from 'styled-components';
 
 export function Slide() {
 
@@ -59,13 +58,38 @@ export function Slide() {
 
 
     return (
-        <Section>
+        <section>
             <Swiper
                 style={{ width: '100%', flexShrink: 0 }}
-                slidesPerView={10}
                 pagination={{ clickable: true }}
                 navigation
                 modules={[Navigation]}
+                breakpoints={{
+
+                300: {
+                    slidesPerView: 3,
+                },
+                
+                480: {
+                    slidesPerView: 4,
+                },
+
+                640: {
+                    slidesPerView: 5,
+                },
+
+                768: {
+                    slidesPerView: 6,
+                },
+
+                1024: {
+                    slidesPerView: 7,
+                },
+
+                1025: {
+                    slidesPerView: 10,
+                },
+                }}
             >
                 {pokemons.map((pokemon, index) => (
                     <SwiperSlide key={index}>
@@ -77,13 +101,6 @@ export function Slide() {
                     </SwiperSlide>
                 ))}
             </Swiper>
-        </Section>
+        </section>
     )
 }
-
-const Section = styled.section`
-    display: flex;
-    flex-direction: column; 
-    justify-content: flex-end;
-    height: 68%;
-`

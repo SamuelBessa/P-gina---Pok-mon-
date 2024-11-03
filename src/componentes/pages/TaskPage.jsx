@@ -42,21 +42,55 @@ function TaskPage() {
 
 const Img = styled.img`
     margin-left: 30px;
-`
+    max-width: 100%;
+
+    @media (max-width: 768px) {
+        margin-left: 15px;
+    }
+
+    @media (max-width: 480px) {
+        margin-left: 0;
+    }
+`;
 
 const Section = styled.section`
     height: calc(100vh - 50px);
-`
+    padding: 20px;
+
+    @media (max-width: 768px) {
+        padding: 10px;
+    }
+`;
 
 const Span = styled.span`
     font-weight: 700;
-`
+    font-size: 1.2rem;
+
+    @media (max-width: 768px) {
+        font-size: 1rem;
+    }
+
+    @media (max-width: 480px) {
+        font-size: 0.9rem;
+    }
+`;
 
 const Div = styled.div`
     display: flex;
     gap: 10px;
     flex-direction: column;
     margin-left: 30px;
-`
+
+    @media (max-width: 768px) {
+        margin-left: 15px;
+        gap: 8px;
+    }
+
+    @media (max-width: 480px) {
+        margin-left: 0;
+        gap: 5px;
+    }
+`;
+
 
 export default TaskPage

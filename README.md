@@ -1,5 +1,3 @@
-Aqui está o README formatado para que você possa copiar e colar diretamente no seu projeto.
-
 ---
 
 # Pokédex React SPA

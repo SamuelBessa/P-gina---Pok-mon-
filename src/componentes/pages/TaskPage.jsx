@@ -1,9 +1,9 @@
 import { useSearchParams } from "react-router-dom"
-import { ArrowLeft } from "lucide-react";
 import { useContext } from "react";
 import { ThemeContext } from "../context/theme-context";
 import { Test } from "../header/Header"
 import styled from "styled-components";
+import { Slide } from "../slides/slide";
 
 function TaskPage() {
 
@@ -34,6 +34,7 @@ function TaskPage() {
                     <p><Span>Abilidades: </Span>{habilidadesFormatadas}</p>
                     <p><Span>Type: </Span>{typesFormatados}</p>
                 </Div>
+                <Slide />
             </Section>
         </>
     )

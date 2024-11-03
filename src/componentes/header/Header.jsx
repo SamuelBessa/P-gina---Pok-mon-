@@ -9,7 +9,7 @@ export function Test() {
 
     const handleBack = () => {
         if (location.pathname !== '/') {
-            navigate(-1)
+            navigate("/")
         }
     }
 

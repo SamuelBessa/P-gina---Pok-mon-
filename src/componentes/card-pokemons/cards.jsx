@@ -1,7 +1,6 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useContext } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Plus } from 'lucide-react';
-import { useContext } from 'react';
 import { ThemeContext } from '../context/theme-context';
 import styled from 'styled-components';
 import { Test } from '../header/Header';
@@ -12,15 +11,19 @@ export function Card() {
 
     function onSeeDetailsClick(pokemon) {
         const query = new URLSearchParams();
-
+    
         query.set("name", pokemon.name);
         query.set("image", pokemon.image);
-        query.set("moves", pokemon.moves);
-        query.set("abilities", pokemon.abilities);
-        query.set("types", pokemon.types);
-
+        query.set("moves", pokemon.moves.join(','));  // Passa moves como string separada por vírgulas
+        query.set("types", pokemon.types.join(','));  // Passa types como string separada por vírgulas
+        query.set("abilities", encodeURIComponent(JSON.stringify(pokemon.abilities)));  // Codifica abilities
+    
         navigate(`/task?${query.toString()}`);
     }
+    
+    
+    
+    
 
 
     const [pokemons, setPokemons] = useState([]);
@@ -35,13 +38,21 @@ export function Card() {
                     const response = await fetch(pokemon.url);
                     const details = await response.json();
 
-                    const image = details.sprites.front_default
+                    const image = details.sprites.front_default;
+                    const moves = details.moves.map(move => move.move.name);
+                    
+                    // Busca detalhes das habilidades com nome e descrição
+                    const abilities = await Promise.all(details.abilities.map(async (ability) => {
+                        const abilityResponse = await fetch(ability.ability.url);
+                        const abilityDetails = await abilityResponse.json();
+                        const effectEntry = abilityDetails.effect_entries.find(entry => entry.language.name === 'en');
+                        return {
+                            name: ability.ability.name,
+                            description: effectEntry ? effectEntry.effect : 'Description not available'
+                        };
+                    }));
 
-                    const moves = details.moves.map(move => move.move.name)
-
-                    const abilities = details.abilities.map(ability => ability.ability.name)
-
-                    const types = details.types.map(type => type.type.name)
+                    const types = details.types.map(type => type.type.name);
 
                     return {
                         name: details.name,
@@ -76,7 +87,7 @@ export function Card() {
                                 <img src={pokemon.image} alt={pokemon.name} />
                             </Div>
                             <H3 onClick={() => onSeeDetailsClick(pokemon)}>{pokemon.name}</H3>
-                            <p>{pokemon.types}</p>
+                            <p>Types: {pokemon.types.join(', ')}</p>
                         </Li>
                     ))}
                 </Ul>

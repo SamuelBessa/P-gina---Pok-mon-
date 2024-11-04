@@ -1,24 +1,22 @@
-import { useSearchParams } from "react-router-dom"
+import { useSearchParams } from "react-router-dom";
 import { useContext } from "react";
 import { ThemeContext } from "../context/theme-context";
-import { Test } from "../header/Header"
+import { Test } from "../header/Header";
 import styled from "styled-components";
 import { Slide } from "../slides/slide";
 
 function TaskPage() {
 
     const [searchParams] = useSearchParams();
-    const name = searchParams.get("name")
-    const image = searchParams.get("image")
-    const types = searchParams.get("types")
-    const moves = searchParams.get("moves")
-    const abilities = searchParams.get("abilities")
+    const name = searchParams.get("name");
+    const image = searchParams.get("image");
+    const types = searchParams.get("types").split(','); // Divide a string em um array
+    const moves = searchParams.get("moves").split(','); // Divide a string em um array
 
-    const movesFormatadas = moves.split(",").join(", ");
-    const habilidadesFormatadas = abilities.split(",").join(", ");
-    const typesFormatados = types.split(",").join(", ");
+    const abilitiesData = searchParams.get("abilities");
+    const abilities = abilitiesData ? JSON.parse(decodeURIComponent(abilitiesData)) : [];
 
-    const { theme } = useContext(ThemeContext)
+    const { theme } = useContext(ThemeContext);
 
     return (
         <>
@@ -30,14 +28,24 @@ function TaskPage() {
 
                 <Div>
                     <h2>{name}</h2>
-                    <p><Span>Moves: </Span>{movesFormatadas}</p>
-                    <p><Span>Abilidades: </Span>{habilidadesFormatadas}</p>
-                    <p><Span>Type: </Span>{typesFormatados}</p>
+                    <p><Span>Moves: </Span>{moves.join(', ')}</p>
+                    <p><Span>Type: </Span>{types.join(', ')}</p>
                 </Div>
+
+                <div>
+                    <h4>Abilities:</h4>
+                    <ul>
+                        {abilities.map((ability, index) => (
+                            <li key={index}>
+                                <strong>{ability.name}</strong>: {ability.description}
+                            </li>
+                        ))}
+                    </ul>
+                </div>
                 <Slide />
             </Section>
         </>
-    )
+    );
 }
 
 const Img = styled.img`

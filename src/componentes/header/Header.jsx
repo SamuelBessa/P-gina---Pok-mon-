@@ -1,6 +1,8 @@
 import styled from "styled-components"
 import { ThemeToggleerButton } from "../theme-toggler-button/theme-toggler-button"
 import { useLocation, useNavigate } from "react-router-dom"
+import LogoPokeball from '../../../public/logo-pokeball.png';
+import LogoPokemon from '../../../public/logo-pokemon.png';
 
 export function Test() {
 
@@ -8,18 +10,18 @@ export function Test() {
     const location = useLocation();
 
     const handleBack = () => {
-        if (location.pathname !== '/') {
-            navigate("/")
+        if (location.pathname !== '/Pokedex') {
+            navigate("/Pokedex")
         }
     }
 
     return (
         <Header>
             <Button onClick={handleBack}>
-                <Img src="../../../img/logo-pokeball.png" alt="" />
+                <Img src={ LogoPokeball} alt="logo-pokeball"></Img>
             </Button>
             <Button onClick={handleBack}>
-                <Img src="../../../img/logo-pokemon.png" alt="" />                
+                <Img src={LogoPokemon} alt="logo-pokemon"></Img>                
             </Button>
             <ThemeToggleerButton />
         </Header>

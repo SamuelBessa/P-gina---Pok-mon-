@@ -1,4 +1,5 @@
- ---
+---
+---
 
 # Pokédex React SPA
 
@@ -31,12 +32,12 @@ Esta aplicação é uma Pokédex interativa desenvolvida em **React.js**, que ut
 - **React Router DOM**: Navegação entre páginas da SPA.
 - **Lucide-react**: Biblioteca de ícones para React, usada para adicionar ícones personalizados e modernos ao projeto com facilidade de configuração e estilização.
 - **Swiper**: Biblioteca de sliders que permite exibir elementos de forma interativa e com rolagem suave, proporcionando uma experiência de usuário mais fluida.
-  
+
 Escolhir essas ferramentas por serem robustas e amplamente utilizadas para construção de SPAs com funcionalidades interativas e temas dinâmicos, e por ser as ferramentas que foi abordadas no curso DevQuest. Elas permitiram uma implementação eficiente e escalável, além de facilitar a manutenção e a personalização de estilos.
 
 ## 📐 Estrutura do Projeto
 
-plaintext
+```plaintext
 ├── index.html/
 │   
 ├── src/
@@ -65,7 +66,7 @@ plaintext
 │   ├── App.jsx
 │   └── main.jsx
 └── README.md
-
+```
 
 ## 📋 Decisões de Implementação
 
@@ -86,49 +87,44 @@ Siga os passos abaixo para rodar o projeto no seu ambiente local.
 
 1. **Clone o repositório**:
 
-   
-bash
+   ```bash
    git clone https://github.com/seu-usuario/pokedex-react.git
    cd pokedex-react
-
+   ```
 
 2. **Instale as dependências**:
 
-   
-bash
+   ```bash
    npm install
-
+   ```
 
    ou, se preferir o yarn:
 
-   
-bash
+   ```bash
    yarn install
-
+   ```
 
 3. **Inicie o servidor de desenvolvimento**:
 
-   
-bash
+   ```bash
    npm run dev
-
+   ```
 
    ou com yarn:
 
-   
-bash
+   ```bash
    yarn run dev
-
+   ```
 
 4. **Abra no navegador**:
 
-   A aplicação estará disponível em http://localhost:5173.
+   A aplicação estará disponível em `http://localhost:5173`.
 
 ## 📝 Observações Adicionais
 
 - **Tema Claro/Escuro**: A aplicação inicia com o tema claro, mas você pode alternar entre os temas usando o botão no cabeçalho da página inicial.
 - **Carregamento de Dados**: Para otimizar o tempo de resposta, os detalhes do Pokémon são buscados sob demanda ao acessar a página de detalhes.
-  
+
 ## 🎉 Agradecimentos
 
 Agradecemos à equipe da [PokeAPI](https://pokeapi.co/) por disponibilizar uma API tão completa e de fácil uso para desenvolvedores, e a equipe do DevQuest pelas aulas, monitorias e suporte que me ajudou muito no meu desenvolvimento com programador para que hoje eu possa entregar esse projeto, e pelas aulas com explicações de facil entedimento.

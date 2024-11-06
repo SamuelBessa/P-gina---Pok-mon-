@@ -1,14 +1,13 @@
-import Pagina from './componentes/card-pokemons/cards'
-import { ThemeProvider } from './componentes/context/theme-context'
-import { createGlobalStyle } from 'styled-components'
-import { createBrowserRouter, RouterProvider } from 'react-router-dom'
-import TaskPage from './componentes/pages/TaskPage.jsx'
+import Pagina from './componentes/card-pokemons/cards';
+import { ThemeProvider } from './componentes/context/theme-context';
+import { createGlobalStyle } from 'styled-components';
+import { createBrowserRouter, RouterProvider } from 'react-router-dom';
+import TaskPage from './componentes/pages/TaskPage.jsx';
 
 function App() {
-
   const router = createBrowserRouter([
     {
-      path: "/",
+      path: "/Pokedex",
       element: <Pagina />,
     },
     {
@@ -22,7 +21,7 @@ function App() {
       <GlobalStyle />
       <RouterProvider router={router} />
     </ThemeProvider>
-  )
+  );
 }
 
 const GlobalStyle = createGlobalStyle`
@@ -32,6 +31,7 @@ const GlobalStyle = createGlobalStyle`
     list-style-type: none;
     box-sizing: border-box;
   }
-`
+`;
 
-export default App
+export default App;
+

@@ -19,7 +19,7 @@ function App() {
   return (
     <ThemeProvider>
       <GlobalStyle />
-      <RouterProvider router={router} basename={process.env.PUBLIC_URL}/>
+      <RouterProvider router={router} />
     </ThemeProvider>
   );
 }

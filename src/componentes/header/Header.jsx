@@ -1,8 +1,8 @@
 import styled from "styled-components"
 import { ThemeToggleerButton } from "../theme-toggler-button/theme-toggler-button"
 import { useLocation, useNavigate } from "react-router-dom"
-import LogoPokeball from '../../../public/logo-pokeball.png';
-import LogoPokemon from '../../../public/logo-pokemon.png';
+import LogoPokeball from '../img/logo-pokeball.png';
+import LogoPokemon from '../img/logo-pokemon.png';
 
 export function Test() {
 

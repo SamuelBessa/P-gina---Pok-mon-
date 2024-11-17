@@ -91,9 +91,11 @@ export function Card() {
                         </Li>
                     ))}
                 </Ul>
+                <DivButton>
                 <Button onClick={loadMorePokemons}>
                     <Plus />
                 </Button>
+                </DivButton>
             </Section>
         </>
     );
@@ -109,35 +111,28 @@ const Li = styled.li`
     border-radius: 8px;
     width: 280px;
     height: 354px;
+    margin: 30px;
     justify-items: center;
     align-content: center;
-    margin: 30px;
-
-    @media (max-width: 768px) {
-        width: 200px;
-        margin: 15px 0;
-    }
 `;
 
 const Ul = styled.ul`
-    display: grid;
-    grid-template-columns: repeat(5, 1fr);
-    
-    @media (max-width: 768px) {
-        grid-template-columns: repeat(2, 1fr);
-        gap: 50px;
-    }
+    display: grid;        
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 30px;
+    justify-items: center;
+    text-align: center;
+`;
 
-    @media (max-width: 480px) {
-        grid-template-columns: 1fr;
-    }
+const DivButton = styled.div`
+  width: 100%;
+  text-align: center;
 `;
 
 const Section = styled.section`
     height: 100%;
     width: 100%;
     background-color: #FFF7FC;
-    justify-items: center;
     padding: 20px;
 
     @media (max-width: 768px) {
